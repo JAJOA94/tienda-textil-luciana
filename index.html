@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TEXTILLUCIANA</title>
+<title>"TEXTIL LUCIANA"</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="estilos.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,7 +19,7 @@
 
         <a class="navbar-brand d-flex align-items-center" href="#">
             <img src="IMAGENES/logo.png" width="50" class="me-2">
-            TEXTILLUCIANA
+            "TEXTIL LUCIANA"
         </a>
 
         <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
@@ -44,11 +44,27 @@
 </nav>
 
 <!-- BANNER -->
-<section class="banner text-center text-white d-flex align-items-center">
-    <div class="container">
-        <h1>Textil Luciana</h1>
-        <p>Moda femenina elegante</p>
+<section class="banner">
+
+    <div class="slider">
+        <img src="IMAGENES/gabardinas.png" class="active">
+        <img src="IMAGENES/faldita.png">
+        <img src="IMAGENES/body_licra.png">
     </div>
+
+    <div class="contenido-banner text-center">
+
+    <h1 class="titulo-banner">
+    <span class="textil">Textil</span>
+    <span class="luciana">Luciana</span>
+</h1>
+
+    <p class="subtitulo-banner">Moda femenina elegante</p>
+
+    <a href="productos.html" class="btn btn-banner">Comprar ahora</a>
+
+</div>
+
 </section>
 
 <!-- PRODUCTOS -->
@@ -123,6 +139,39 @@ Alameda 3027 Local 81 primer piso - Mall mayorista Santiago Alameda
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    let slides = document.querySelectorAll('.slider img');
+    let index = 0;
+
+    if (slides.length === 0) return; // evita errores
+
+    // asegurar que la primera se vea
+    slides[0].classList.add('active');
+
+    setInterval(() => {
+        slides[index].classList.remove('active');
+        index = (index + 1) % slides.length;
+        slides[index].classList.add('active');
+    }, 3000);
+
+});
+</script>
+<script>
+const texto = "TEXTILLUCIANA";
+let i = 0;
+
+function escribirTexto() {
+    if (i < texto.length) {
+        document.getElementById("texto-animado").innerHTML += texto.charAt(i);
+        i++;
+        setTimeout(escribirTexto, 120);
+    }
+}
+
+document.addEventListener("DOMContentLoaded", escribirTexto);
+</script>
 
 </body>
 </html>
