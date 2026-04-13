@@ -14,34 +14,150 @@ body {
     border-radius: 5px;
 }
 
-/* BANNER */
-.banner {
-    height: 300px;
-    background: pink;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 /* BOTON ROSA */
 .btn-rosa {
     background-color: #e91e63;
     color: white;
 }
 
+/* 🔥 BANNER */
+.banner {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+}
+
+/* SLIDER */
+.slider {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.slider img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+    transform: scale(1.1); /* empieza un poco zoom */
+    
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out;
+}
+
+.slider img.active {
+    opacity: 1;
+    transform: scale(1); /* vuelve al centro */
+}
+
+/* OSCURECER */
+.banner::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+}
+
+/* TEXTO BANNER */
+.titulo-banner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* SUBTITULO */
+.subtitulo-banner {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    margin-top: 10px;
+    animation: aparecer 3s ease;
+}
+
+.contenido-banner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+
+    z-index: 3; /* 🔥 MUY IMPORTANTE (antes estaba bajo) */
+    width: 100%;
+    text-align: center;
+}
+
+/* ANIMACIÓN */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
 /* BOTONES FLOTANTES */
 .btn-float {
     position: fixed;
     right: 20px;
-    width: 50px;
-    height: 50px;
-    color: white;
-    text-align: center;
-    line-height: 50px;
+    width: 55px;
+    height: 55px;
     border-radius: 50%;
-    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 22px;
+    z-index: 1000;
 }
 
-.whatsapp { bottom: 20px; background: green; }
-.instagram { bottom: 80px; background: #e91e63; }
-.tiktok { bottom: 140px; background: black; }
+/* BOTON ELEGANTE */
+.btn-banner {
+    margin-top: 20px;
+    border: 2px solid white;
+    color: white;
+    padding: 10px 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-banner:hover {
+    background-color: #e91e63;
+    border-color: #e91e63;
+}
+
+/* TEXTO */
+.titulo-banner {
+    font-family: 'Great Vibes', cursive;
+    font-size: 70px;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: none; /* 🔥 importante */
+}
+/* ANIMACION SUAVE */
+.subtitulo-banner {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 2s;
+}
+
+.btn-banner {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+    animation-delay: 3s;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.whatsapp { bottom: 20px; background: #25D366; }
+.instagram { bottom: 90px; background: #E1306C; }
+.tiktok { bottom: 160px; background: black; }
