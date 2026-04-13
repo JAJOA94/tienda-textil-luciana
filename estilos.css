@@ -1,0 +1,47 @@
+body {
+    font-family: Arial;
+}
+
+/* NAVBAR */
+.navbar-light .nav-link {
+    color: black;
+    font-weight: bold;
+}
+
+.navbar-light .nav-link:hover {
+    background-color: #e91e63;
+    color: white;
+    border-radius: 5px;
+}
+
+/* BANNER */
+.banner {
+    height: 300px;
+    background: pink;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* BOTON ROSA */
+.btn-rosa {
+    background-color: #e91e63;
+    color: white;
+}
+
+/* BOTONES FLOTANTES */
+.btn-float {
+    position: fixed;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 50%;
+    font-weight: bold;
+}
+
+.whatsapp { bottom: 20px; background: green; }
+.instagram { bottom: 80px; background: #e91e63; }
+.tiktok { bottom: 140px; background: black; }
